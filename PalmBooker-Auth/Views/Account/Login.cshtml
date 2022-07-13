@@ -1,0 +1,203 @@
+@model LoginViewModel
+
+
+@if (Model.EnableLocalLogin)
+{
+
+    <div id="main-wrapper" class="oxyy-login-register">
+        <div class="container-fluid px-0">
+            <div class="row no-gutters min-vh-100">
+                <!-- Login Form
+                ========================= -->
+                <div class="col-md-6 d-flex flex-column align-items-center order-2 order-md-1">
+                    <div class="container pt-5">
+                        <div class="row">
+                            <div class="col-11 col-md-10 mx-auto">
+                                <p class="text-right text-2 text-muted font-weight-300">Not a member? <a class="btn-link font-weight-300" 
+                                                                                                         href='~/Identity/Account/Register'>Sign up now</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container my-auto py-5">
+                        <div class="row">
+                            <div class="col-11 col-md-10 col-lg-9 col-xl-8 mx-auto">
+                                <h3 class="font-weight-300 text-9 mb-5">Sign in</h3>
+
+                                <partial name="_ValidationSummary" />
+
+                                <form asp-route="Login">
+                                    <div class="form-group font-weight-300">
+                                        <label for="emailAddress">Email, Phone Or Ghana Card</label>
+
+                                        <input type="text" class="form-control bg-light border-light" placeholder="Enter Your Email" asp-for="Username" autocomplete="off">
+                                    </div>
+                                    <div class="form-group font-weight-300 mt-1" style="position:relative">
+
+                                        <label asp-for="Password"></label>
+                                        <input type="password" id="password" class="form-control bg-light border-light" placeholder="Enter Password" asp-for="Password" autocomplete="off">
+                                        <i class="fa fa-eye" id="togglePassword" style="position:absolute;top:41px;  right: 15px; cursor: pointer;"></i>
+
+
+                                    </div>
+                                    <div class="row text-2 mt-4">
+                                        <div class="col-sm">
+                                            @if (Model.AllowRememberLogin)
+                                            {
+                                                <div class="form-check custom-control custom-checkbox">
+                                                    <input asp-for="RememberLogin" id="remember-me" name="remember" class="custom-control-input" type="checkbox">
+                                                    <label asp-for="RememberLogin" class="custom-control-label font-weight-300" for="remember-me">Remember Me</label>
+                                                </div>
+                                            }
+
+                                        </div>
+                                        <div class="col-sm text-right"><a class="btn-link font-weight-300" href="~/Identity/Account/ForgotPassword">Forgot Password ?</a></div>
+                                    </div>
+
+                                    <button class="btn btn-primary btn-block shadow-none font-weight-400 my-4" name="button" value="login">Sign in</button>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Login Form End -->
+                <!-- Welcome Text
+                ========================= -->
+                <div class="col-md-6  order-1 bg-light order-md-2" style="background-repeat: no-repeat;
+        background-size: 40% !important;
+        background-image: url('@Url.Content("~/admin/assets/book2.png")');
+        background-size: contain;
+        background-position-y: center;
+        background-position-x: center;
+        padding: 0 !important;
+        margin: 0 !important;">
+                    <div class="container h-100 d-flex flex-column">
+                        <div class="row no-gutters">
+                            <div class="col-11 col-md-10 mx-auto">
+                                @*<div class="logo mt-5 mb-5 mb-md-0"> <a class="d-flex" href="index.html" title="Oxyy"><img src="" alt="Your Logo"></a> </div>*@
+                            </div>
+                        </div>
+                        <div class="row no-gutters my-auto">
+                            <div class="col-11 col-md-10 mx-auto">
+                                @*<h1 class="text-13 font-weight-300 mb-4">Join the largest Designer community in the world.</h1>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Welcome Text End -->
+            </div>
+        </div>
+    </div>
+
+
+}
+
+
+
+
+@section Scripts{
+    <script src="~/js/login.js"></script>
+ }
+
+
+
+
+
+
+
+
+
+
+@*<div class="login-page">
+    <div class="page-header">
+        <h1>Login</h1>
+    </div>
+
+    <partial name="_ValidationSummary" />
+
+    <div class="row">
+
+        @if (Model.EnableLocalLogin)
+        {
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Local Login page</h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <form asp-route="Login">
+                            <input type="hidden" asp-for="ReturnUrl" />
+
+                            <fieldset>
+                                <div class="form-group">
+                                    <label asp-for="Username">Email Or Ghana Card PIN</label>
+                                    <input class="form-control" placeholder="Username" asp-for="Username" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Password"></label>
+                                    <input type="password" class="form-control" placeholder="Password" asp-for="Password" autocomplete="off">
+                                </div>
+                                @if (Model.AllowRememberLogin)
+                                {
+                                    <div class="form-group login-remember">
+                                        <label asp-for="RememberLogin">
+                                            <input asp-for="RememberLogin">
+                                            <strong>Remember My Login</strong>
+                                        </label>
+                                    </div>
+                                }
+                                <div class="form-group">
+                                    <button class="btn btn-primary" name="button" value="login">Login</button>
+                                    <button class="btn btn-default" name="button" value="cancel">Cancel</button>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <a class="small pull-left" href="~/Identity/Account/ForgotPassword" role="button">Forgot Password?</a>
+                    <a class="small pull-right" href='~/Identity/Account/Register' role="button">Create an Account!</a>
+                </div>
+            </div>
+
+        }
+
+        @if (Model.VisibleExternalProviders.Any())
+        {
+            <div class="col-md-6 col-sm-6 external-providers">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">External Login</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-inline">
+                            @foreach (var provider in Model.VisibleExternalProviders)
+                            {
+                                <li>
+                                    <a class="btn btn-default"
+                                       asp-controller="External"
+                                       asp-action="Challenge"
+                                       asp-route-provider="@provider.AuthenticationScheme"
+                                       asp-route-returnUrl="@Model.ReturnUrl">
+                                        @provider.DisplayName
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @if (!Model.EnableLocalLogin && !Model.VisibleExternalProviders.Any())
+        {
+            <div class="alert alert-warning">
+                <strong>Invalid login request</strong>
+                There are no login schemes configured for this client.
+            </div>
+        }
+    </div>
+</div>*@
+
+

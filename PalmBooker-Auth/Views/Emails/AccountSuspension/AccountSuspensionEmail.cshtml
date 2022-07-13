@@ -1,0 +1,27 @@
+﻿@using RazorClassLib.Pages.Emails.AccountSuspension
+@using RazorClassLib.Pages.Shared
+@model AccountSuspensionEmailViewModel
+
+@{
+    ViewData["EmailTitle"] = "Suspension Notice!";
+}
+
+<p>
+    We're suspending activities on your Hehe Account following incidence of violations on our terms and conditions regarding the upload of already occupied houses. To get back to normal activities on the Hehe Real estate platform, click on the button below.
+</p>
+
+<br />
+
+@await Html.PartialAsync("_EmailButton", new EmailButtonViewModel("Confirm Account", Model.AccountRecoveryUrl))
+
+<br />
+
+<p>
+    With Hehe, engagement is very important so we encourage to keep updating properties on the platform. Thanks.
+</p>
+
+<br />
+
+<p>
+    Hehe Team
+</p>

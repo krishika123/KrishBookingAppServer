@@ -1,0 +1,415 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+
+
+
+<div id="main-wrapper" class="oxyy-login-register">
+    <div class="container-fluid px-0">
+        <div class="row no-gutters min-vh-100">
+            <!-- Register Form
+            ========================= -->
+            <div class="col-md-6 d-flex flex-column align-items-center order-2 order-md-1">
+                <div class="container pt-5">
+                    <div class="row">
+                        <div class="col-11 col-md-10 mx-auto">
+                            <p class="text-right text-2 text-muted font-weight-300">Already a member? <a class="btn-link font-weight-300" href="~/grants">Sign in now</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container my-auto py-5">
+                    <div class="row">
+                        <div class="col-11 col-md-10 col-lg-9 col-xl-8 mx-auto">
+                            <h3 class="font-weight-300 text-6 mb-4">Sign up</h3>
+                            <span id="verificationSteps">Verification 1/2</span>
+                            <div class="progress mb-4">
+                                <div id="progressBar" class="progress-bar progress-bar-striped " role="progressbar" style="width:1%" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <form asp-route-returnUrl="@Model.ReturnUrl" method="post" autocomplete="off">
+                                <div id="step1" class="animate__animated">
+
+                                    <div id="ghanaCardVerificationView">
+
+                                        <div class="form-group font-weight-300">
+                                            <label for="loginPassword">Ghana Card Number</label>
+                                            <input asp-for="Input.GhanaCardNumber" type="text" class="form-control bg-light border-light" id="ghanaCardNumber" required placeholder="Enter Your Ghana Card Number">
+                                            <span id="ghanarequired" class="text-danger"></span>
+                                            @*<span asp-validation-for="Input.GhanaCardNumber" id="ghanarequired" class="text-danger"></span>*@
+                                        </div>
+
+                                        <div class="form-group font-weight-300" id="dobInput" hidden>
+                                            <label for="loginPassword" class="mt-3">Mother Maiden Name</label>
+                                            <input type="text" class="form-control form-control-sm bg-light border-light" id="dob" required placeholder="Enter Your Mother Maiden Name">
+                                            <span id="dobrequired" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="form-group font-weight-300 mt-0">
+                                            <button class="btn btn-sm btn-warning shadow-none font-weight-400 my-4" type="button" id="">Clear</button>
+                                            <button class="btn btn-sm btn-primary shadow-none font-weight-400 my-4" type="button" style="float:right" id="goToDobViewBtn">Next</button>
+
+                                            <button hidden class="btn btn-sm btn-primary shadow-none font-weight-400 my-4" type="button" id="verificationBtn" style="float:right">Next</button>
+                                        </div>
+
+
+
+                                    </div>
+
+                                    <div id="dobVerificationView" hidden>
+
+                                        @*<div class="form-group font-weight-300">
+                                                <label for="loginPassword">Birth Date</label>
+                                                <input asp-for="Input.GhanaCardNumber" type="date" class="form-control bg-light border-light" id="dob" required placeholder="Enter Your Birth Date">
+                                                <span id="dobrequired" class="text-danger"></span>
+                                            </div>*@
+
+
+                                        <!--<div class="form-group font-weight-300 mt-4">
+                                        <button class="btn btn-sm btn-info shadow-none font-weight-400 my-4" type="button" id="backToGhanaCardViewBtn">Back</button>
+                                        <button class="btn btn-primary shadow-none font-weight-400 my-4" type="button"  id="verificationBtn" style="float:right">Next</button>-->
+                                        @* <button class="btn btn-dark shadow-none font-weight-400 my-4" type="button" id="thirdStepBtn" style="float:right">Next</button>*@
+                                        <!--</div>-->
+
+                                    </div>
+
+                                    <div id="ghanaCardConfirmView" hidden>
+                                        <h4 class="font-weight-300 text-4 mb-2">Personal Details</h4>
+                                        <div class="form-group font-weight-300">
+                                            <label>Name</label>
+                                            <input disabled type="text" class="form-control form-control-sm bg-light border-light" id="fullName" required placeholder="Enter Your First Name">
+
+                                        </div>
+                                        <div class="form-group font-weight-300">
+                                            <label hidden asp-for="Input.FirstName">First Name</label>
+                                            <input hidden type="text" class="form-control bg-light border-light" asp-for="Input.FirstName" id="firstName" required placeholder="Enter Your First Name">
+                                            <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group font-weight-300">
+                                            <label hidden asp-for="Input.LastName"></label>
+                                            <input hidden asp-for="Input.LastName" class="form-control bg-light border-light" id="lastName" placeholder="Enter Your Last Name" />
+                                            <span asp-validation-for="Input.LastName" class="text-danger"></span>
+
+                                        </div>
+                                        <div class="form-group font-weight-300" hidden>
+                                            <label hidden asp-for="Input.GhanaCardNumber"></label>
+                                            <input hidden asp-for="Input.GhanaCardNumber" class="form-control bg-light border-light" id="lastName" placeholder="Enter Your Last Name" />
+                                            <span asp-validation-for="Input.GhanaCardNumber" class="text-danger"></span>
+
+                                        </div>
+                                        <div class="form-group font-weight-300">
+                                            <label asp-for="Input.PhoneNumber" class="mt-3">Phone Number</label>
+                                            <input asp-for="Input.PhoneNumber" id="phoneNumber" class="form-control bg-light border-light" placeholder="Enter Your Phone Number" />
+                                            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+
+                                        </div>
+                                        <div class="form-group font-weight-300">
+                                            <label asp-for="Input.Email" class="mt-3">Email</label>
+                                            <input asp-for="Input.Email" class="form-control bg-light border-light" placeholder="Enter Your Email" />
+                                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+
+                                        </div>
+
+                                        @*<div class="form-group font-weight-300">
+                                                <label for="loginPassword" class="mt-3">Password</label>
+                                                <input asp-for="Input.Password" type="password" id="password" class="form-control bg-light border-light" required placeholder="Enter Your Password">
+                                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                            </div>
+
+                                            <div class="form-group font-weight-300">
+                                                <label for="loginPassword" class="mt-3">Confirm Password</label>
+                                                <input asp-for="Input.ConfirmPassword" id="passwordConfirm" type="password" class="form-control bg-light border-light" required placeholder="Confirm Password">
+                                                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                            </div>*@
+
+
+                                        <button class="btn btn-sm btn-primary btn-block shadow-none font-weight-400 my-4" type="button" id="fistStepBtn">Next</button>
+
+                                    </div>
+
+
+
+
+
+
+                                </div>
+
+
+
+                                <div id="step2" class="animate__animated" hidden>
+                                    <h5 class="font-weight-300 text-4 mb-2">Business Details</h5>
+
+                                    <div class="form-group font-weight-300">
+                                        <label asp-for="Input.BusinessTIN">TIN / Ghana Card Number</label>
+                                        <input asp-for="Input.BusinessTIN" type="text" class="form-control bg-light border-light" id="tinGHCard" required placeholder="Enter Your TIN or Ghana card number">
+                                        <span asp-validation-for="Input.BusinessTIN" id="bussinessTinOrGhCard" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group font-weight-300">
+                                        <label asp-for="Input.BusinessName" class="mt-3"></label>
+                                        <input asp-for="Input.BusinessName" type="text" class="form-control bg-light border-light" id="emailAddress" required placeholder="Enter Business Name">
+                                        <span asp-validation-for="Input.BusinessName" class="text-danger"></span>
+                                    </div>
+
+                                    @*<div class="form-group font-weight-300">
+                                            <label asp-for="Input.BusinessRegistrationNumber"></label>
+                                            <input asp-for="Input.BusinessRegistrationNumber" type="text" class="form-control bg-light border-light" id="emailAddress" required placeholder="Enter Business Registration Number">
+                                            <span asp-validation-for="Input.BusinessRegistrationNumber" class="text-danger"></span>
+                                        </div>*@
+
+                                    @*<div class="form-group font-weight-300">
+                                            <label asp-for="Input.BusinessType">Business Type</label>
+                                            <input asp-for="Input.BusinessType" type="text" class="form-control bg-light border-light" required placeholder="Enter Business Type">
+                                            <span asp-validation-for="Input.BusinessType" class="text-danger"></span>
+                                        </div>*@
+
+
+
+                                    <div class="form-group font-weight-300">
+                                        <label asp-for="Input.BusinessPhoneNumber" class="mt-3"></label>
+                                        <input asp-for="Input.BusinessPhoneNumber" type="tel" class="form-control bg-light border-light" required placeholder="Enter Your Business Phone Number">
+                                        <span asp-validation-for="Input.BusinessPhoneNumber" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group font-weight-300">
+                                        <label asp-for="Input.BusinessEmail" class="mt-3"></label>
+                                        <input asp-for="Input.BusinessEmail" type="email" class="form-control bg-light border-light" required placeholder="Enter Your Email">
+                                        <span asp-validation-for="Input.BusinessEmail" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="form-group font-weight-300 mt-0">
+                                        <button class="btn btn-sm btn-warning shadow-none font-weight-400 my-4" type="button" id="backStepBtn">Back</button>
+                                        <button class="btn btn-sm btn-primary shadow-none font-weight-400 my-4" type="button" id="secStepBtn" style="float:right">Next</button>
+                                    </div>
+
+                                </div>
+
+                                <div id="step3" class="animate__animated" hidden>
+                                    <h5 class="font-weight-300 text-4 mb-2">Password</h5>
+                                    @*<div class="form-group font-weight-300">
+                                            <label asp-for="Input.BusinessAddress"></label>
+                                            <input asp-for="Input.BusinessAddress" type="text" class="form-control bg-light border-light" id="fullName" required placeholder="Enter Your Address">
+                                            <span asp-validation-for="Input.BusinessAddress" class="text-danger"></span>
+                                        </div>*@
+                                    <div class="form-group font-weight-300">
+                                        <label for="loginPassword" class="mt-3">Password</label>
+                                        <input asp-for="Input.Password" type="password" id="password" class="form-control bg-light border-light" required placeholder="Enter Your Password">
+                                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="form-group font-weight-300">
+                                        <label for="loginPassword" class="mt-3">Confirm Password</label>
+                                        <input asp-for="Input.ConfirmPassword" id="passwordConfirm" type="password" class="form-control bg-light border-light" required placeholder="Confirm Password">
+                                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                    </div>
+
+
+                                    <div class="form-group font-weight-300 mt-0">
+                                        <button class="btn btn-sm btn-warning shadow-none font-weight-400 my-4" type="button" id="backStepBtn2">Back</button>
+                                        <button class="btn btn-sm btn-primary shadow-none font-weight-400 my-4" type="submit" id="submit" style="float:right">Submit</button>
+                                        @* <button class="btn btn-dark shadow-none font-weight-400 my-4" type="button" id="thirdStepBtn" style="float:right">Next</button>*@
+                                    </div>
+
+
+
+
+
+                                </div>
+
+                                @*<div id="step4" class="animate__animated" hidden>
+                                        <h5 class="font-weight-300 text-4 mb-2">Password</h5>
+                                        <div class="form-group font-weight-300">
+                                            <label asp-for="Input.Password">Password</label>
+                                            <input asp-for="Input.Password" type="password" class="form-control bg-light border-light" required placeholder="Enter Your Password">
+                                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="form-group font-weight-300">
+                                            <label asp-for="Input.ConfirmPassword" for="confirmPassword">Confirm Password</label>
+                                            <input asp-for="Input.ConfirmPassword" type="password" class="form-control bg-light border-light" required placeholder="Confirm Password">
+                                        </div>
+
+                                        <div class="form-group font-weight-300 mt-4">
+                                            <button class="btn btn-dark shadow-none font-weight-400 my-4" type="button" id="backStepBtn3">Back</button>
+                                            <button class="btn btn-dark shadow-none font-weight-400 my-4" type="submit" id="submit" style="float:right">Submit</button>
+                                        </div>
+
+
+                                    </div>*@
+
+
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Register Form End -->
+            <!-- Welcome Text
+            ========================= -->
+            <div class="col-md-6  order-1 bg-light order-md-2" style="        background-repeat: no-repeat;
+        background-size: 40% !important;
+        background-image: url('@Url.Content("~/admin/assets/book2.png")');
+        background-size: contain;
+        background-position-y: center;
+        background-position-x: center;
+        padding: 0 !important;
+        margin: 0 !important;">
+                <div class="container h-100 d-flex flex-column">
+                    <div class="row no-gutters">
+                        <div class="col-11 col-md-10 mx-auto">
+                            @*<div class="logo mt-5 mb-5 mb-md-0"> <a class="d-flex" href="index.html" title="Oxyy"><img src="" alt="Logo here"></a> </div>*@
+                        </div>
+                    </div>
+                    <div class="row no-gutters my-auto">
+                        <div class="col-11 col-md-10 mx-auto">
+                            @* <h1 class="text-13 font-weight-300 mb-4">Join the largest Designer community in the world.</h1>*@
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Welcome Text End -->
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="row">
+        <div class="col-md-4">
+            <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <h4>Create a new account.</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Input.FirstName"></label>
+                    <input asp-for="Input.FirstName" class="form-control" />
+                    <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.LastName"></label>
+                    <input asp-for="Input.LastName" class="form-control" />
+                    <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.OtherNames"></label>
+                    <input asp-for="Input.OtherNames" class="form-control" />
+                    <span asp-validation-for="Input.OtherNames" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Input.BusinessRegistrationNumber"></label>
+                    <input asp-for="Input.BusinessRegistrationNumber" class="form-control" />
+                    <span asp-validation-for="Input.BusinessRegistrationNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.BusinessName"></label>
+                    <input asp-for="Input.BusinessName" class="form-control" />
+                    <span asp-validation-for="Input.BusinessName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.BusinessTIN"></label>
+                    <input asp-for="Input.BusinessTIN" class="form-control" />
+                    <span asp-validation-for="Input.BusinessTIN" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.BusinessType"></label>
+                    <input asp-for="Input.BusinessType" class="form-control" />
+                    <span asp-validation-for="Input.BusinessType" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.BusinessAddress"></label>
+                    <input asp-for="Input.BusinessAddress" class="form-control" />
+                    <span asp-validation-for="Input.BusinessAddress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.GhanaCardNumber"></label>
+                    <input asp-for="Input.GhanaCardNumber" class="form-control" />
+                    <span asp-validation-for="Input.GhanaCardNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Email"></label>
+                    <input asp-for="Input.Email" class="form-control" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.PhoneNumber"></label>
+                    <input asp-for="Input.PhoneNumber" class="form-control" />
+                    <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Password"></label>
+                    <input asp-for="Input.Password" class="form-control" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.ConfirmPassword"></label>
+                    <input asp-for="Input.ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-default">Register</button>
+            </form>
+        </div>
+        <div class="col-md-6 col-md-offset-2">
+            <section>
+                <h4>Use another service to register.</h4>
+                <hr />
+                @{
+                    if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                    {
+                        <div>
+                            <p>
+                                There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                                for details on setting up this ASP.NET application to support logging in via external services.
+                            </p>
+                        </div>
+                    }
+                    else
+                    {
+                        <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                            <div>
+                                <p>
+                                    @foreach (var provider in Model.ExternalLogins)
+                                    {
+                                        <button type="submit" class="btn btn-default" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                    }
+                                </p>
+                            </div>
+                        </form>
+                    }
+                }
+            </section>
+        </div>
+    </div>*@
+
+@section Scripts {
+    <script src="~/js/site.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+}

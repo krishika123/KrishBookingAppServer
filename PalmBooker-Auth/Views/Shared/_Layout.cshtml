@@ -1,0 +1,92 @@
+﻿@using IdentityServer4.Extensions
+@{
+    string name = null;
+    if (!true.Equals(ViewData["signed-out"]))
+    {
+        name = Context.User?.GetDisplayName();
+    }
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+    <link href="" rel="icon" />
+    <title>E-Bookkeeping</title>
+    <meta name="description" content="Login and Register Form Html Template">
+    <meta name="author" content="harnishdesign.net">
+
+    <!-- Web Fonts
+    ========================= -->
+    @* <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=open+sans:100,200,300,400,500,600,700,800,900' type='text/css'>*@
+
+    <!-- Stylesheet
+    ========================= -->
+    @* <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />*@
+
+    @* <link href="~/css/style.css" rel="stylesheet" />*@
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    @*<link href="~/vendor/font-awesome/css/all.min.css" rel="stylesheet" />*@
+    <link href="~/css/stylesheet.css" rel="stylesheet" />
+
+    <script src="https://use.fontawesome.com/6343ea3bf3.js"></script>
+
+
+</head>
+
+<body>
+    <!--<div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="~/">
+                    <span class="navbar-brand">-->
+    @*<img src="~/icon.png" class="icon-banner">*@
+    <!--E-Bookkeeping Authentication (E-BAUTH)
+                    </span>
+                </a>
+            </div>
+
+            @if (!string.IsNullOrWhiteSpace(name))
+            {
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">@name <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-action="Logout" asp-controller="Account">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            }
+        </div>
+    </div>-->
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+
+    @RenderBody()
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/js/jquery.steps.js"></script>
+    <script src="~/js/main.js"></script>
+    @*<script src="~/js/switcher.min.js"></script>*@
+   
+    <script src="~/js/theme.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
