@@ -89,7 +89,7 @@ namespace IdentityServer4.Quickstart.UI
         public async Task<IActionResult> Callback()
         {
             // read external identity from the temporary cookie
-            var result = await HttpContext.AuthenticateAsync(IdentityConstants.ExternalScheme);
+            var result = await HttpContext.AuthenticateAsync("Google");
             if (result?.Succeeded != true)
             {
                 throw new Exception("External authentication error");
@@ -123,6 +123,7 @@ namespace IdentityServer4.Quickstart.UI
             // issue authentication cookie for user
             // we must issue the cookie maually, and can't use the SignInManager because
             // it doesn't expose an API to issue additional claims from the login workflow
+            user.DateCreated = DateTime.Now;
             var principal = await _signInManager.CreateUserPrincipalAsync(user);
             additionalLocalClaims.AddRange(principal.Claims);
             var name = principal.FindFirst(JwtClaimTypes.Name)?.Value ?? user.Id;

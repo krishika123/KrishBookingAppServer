@@ -54,19 +54,26 @@ namespace IdentityServer4.Quickstart.UI
         /// <summary>
         /// Entry point into the login workflow
         /// </summary>
+        //[HttpGet]
+        //public async Task<IActionResult> Login(string returnUrl)
+        //{
+        //    // build a model so we know what to show on the login page
+        //    var vm = await BuildLoginViewModelAsync(returnUrl);
+
+        //    if (vm.IsExternalLoginOnly)
+        //    {
+        //        // we only have one option for logging in and it's an external provider
+        //        return RedirectToAction("Challenge", "External", new { provider = vm.ExternalLoginScheme, returnUrl });
+        //    }
+
+        //    return View(vm);
+        //}
         [HttpGet]
         public async Task<IActionResult> Login(string returnUrl)
         {
-            // build a model so we know what to show on the login page
-            var vm = await BuildLoginViewModelAsync(returnUrl);
 
-            if (vm.IsExternalLoginOnly)
-            {
-                // we only have one option for logging in and it's an external provider
-                return RedirectToAction("Challenge", "External", new { provider = vm.ExternalLoginScheme, returnUrl });
-            }
+            return RedirectToAction("Challenge", "External", new { provider = "Google", returnUrl });
 
-            return View(vm);
         }
 
         /// <summary>

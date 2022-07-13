@@ -52,7 +52,7 @@ namespace EBookkeepingAuth
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //IdentityModelEventSource.ShowPII = true;
+            IdentityModelEventSource.ShowPII = true;
             services.AddControllersWithViews();
             //services.AddMvc();
             services.AddRazorPages();
@@ -79,7 +79,6 @@ namespace EBookkeepingAuth
             services.AddIdentity<ApplicationUser, IdentityRole>(
                 options =>
                 {
-
                     //options.Cookies.ApplicationCookie.ExpireTimeSpan = TimeSpan.FromHours(1);
                     //    options => {
                     //    options.Cookies.ApplicationCookie.ExpireTimeSpan = TimeSpan.FromHours(1);
@@ -144,19 +143,17 @@ namespace EBookkeepingAuth
                 builder.AddSigningCredential(cert);
             }
 
-            services.AddAuthentication(IdentityConstants.ApplicationScheme);
-                //.AddGoogle(options =>
-               // {
-                    // register your IdentityServer with Google at https://console.developers.google.com
-                    // enable the Google+ API
-                    // set the redirect URI to http://localhost:5000/signin-google
-                  //  options.ClientId = "copy client ID from Google here";
-                  //  options.ClientSecret = "copy client secret from Google here";
-              //  });
+            services.AddAuthentication(IdentityConstants.ApplicationScheme)
+               .AddGoogle("Google", options =>
+                {
+                    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+                    options.ClientId = "756459324841-18h6q344eag2keiq1vi67h08d4hajpbi.apps.googleusercontent.com";
+                    options.ClientSecret = "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";
+                });
             services.Configure<CookiePolicyOptions>(options =>
             {
                 options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.Lax;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
             });
             services.AddTransient<IProfileService, ProfileService>();
             services.AddSingleton<IEmailSender, EmailSender>(i =>

@@ -5379,3 +5379,142 @@ Error Number:515,State:2,Class:16
 2021-09-10 10:22:18.923 +00:00 [DBG] Consent Return Url Parameter: returnUrl
 2021-09-10 10:22:18.924 +00:00 [DBG] Error Url: /home/error
 2021-09-10 10:22:18.924 +00:00 [DBG] Error Id Parameter: errorId
+2022-07-13 11:47:49.337 +00:00 [INF] Starting host...
+2022-07-13 11:47:50.128 +00:00 [INF] Starting IdentityServer4 version 3.1.3.0
+2022-07-13 11:47:50.715 +00:00 [DBG] Custom IssuerUri set to https://psl-app-vm3/EBookkeepingAuth
+2022-07-13 11:47:50.723 +00:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2022-07-13 11:47:50.723 +00:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2022-07-13 11:47:50.723 +00:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2022-07-13 11:47:50.724 +00:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2022-07-13 11:47:50.724 +00:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2022-07-13 11:47:50.725 +00:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2022-07-13 11:48:01.636 +00:00 [DBG] Login Url: /Account/Login
+2022-07-13 11:48:01.639 +00:00 [DBG] Login Return Url Parameter: returnUrl
+2022-07-13 11:48:01.640 +00:00 [DBG] Logout Url: /Account/Logout
+2022-07-13 11:48:01.640 +00:00 [DBG] ConsentUrl Url: /consent
+2022-07-13 11:48:01.640 +00:00 [DBG] Consent Return Url Parameter: returnUrl
+2022-07-13 11:48:01.640 +00:00 [DBG] Error Url: /home/error
+2022-07-13 11:48:01.641 +00:00 [DBG] Error Id Parameter: errorId
+2022-07-13 11:48:14.013 +00:00 [INF] AuthenticationScheme: Google was challenged.
+2022-07-13 11:57:59.398 +00:00 [INF] Starting host...
+2022-07-13 11:57:59.727 +00:00 [INF] Starting IdentityServer4 version 3.1.3.0
+2022-07-13 11:57:59.989 +00:00 [DBG] Custom IssuerUri set to https://psl-app-vm3/EBookkeepingAuth
+2022-07-13 11:57:59.994 +00:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2022-07-13 11:57:59.995 +00:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2022-07-13 11:57:59.995 +00:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2022-07-13 11:57:59.995 +00:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2022-07-13 11:57:59.996 +00:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2022-07-13 11:57:59.996 +00:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2022-07-13 11:58:02.873 +00:00 [DBG] Login Url: /Account/Login
+2022-07-13 11:58:02.876 +00:00 [DBG] Login Return Url Parameter: returnUrl
+2022-07-13 11:58:02.876 +00:00 [DBG] Logout Url: /Account/Logout
+2022-07-13 11:58:02.877 +00:00 [DBG] ConsentUrl Url: /consent
+2022-07-13 11:58:02.878 +00:00 [DBG] Consent Return Url Parameter: returnUrl
+2022-07-13 11:58:02.878 +00:00 [DBG] Error Url: /home/error
+2022-07-13 11:58:02.878 +00:00 [DBG] Error Id Parameter: errorId
+2022-07-13 11:58:18.258 +00:00 [INF] AuthenticationScheme: Google was challenged.
+2022-07-13 11:58:25.417 +00:00 [INF] AuthenticationScheme: idsrv.external signed in.
+2022-07-13 11:58:25.748 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Exception: External authentication error
+   at IdentityServer4.Quickstart.UI.ExternalController.Callback() in C:\Users\plawer\source\repos\KRISH\KrishBookingAppServer\PalmBooker-Auth\Quickstart\Account\ExternalController.cs:line 98
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2022-07-13 12:00:30.248 +00:00 [INF] Starting host...
+2022-07-13 12:00:30.578 +00:00 [INF] Starting IdentityServer4 version 3.1.3.0
+2022-07-13 12:00:30.864 +00:00 [DBG] Custom IssuerUri set to https://psl-app-vm3/EBookkeepingAuth
+2022-07-13 12:00:30.870 +00:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2022-07-13 12:00:30.871 +00:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2022-07-13 12:00:30.871 +00:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2022-07-13 12:00:30.871 +00:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2022-07-13 12:00:30.872 +00:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2022-07-13 12:00:30.872 +00:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2022-07-13 12:00:33.453 +00:00 [DBG] Login Url: /Account/Login
+2022-07-13 12:00:33.457 +00:00 [DBG] Login Return Url Parameter: returnUrl
+2022-07-13 12:00:33.458 +00:00 [DBG] Logout Url: /Account/Logout
+2022-07-13 12:00:33.459 +00:00 [DBG] ConsentUrl Url: /consent
+2022-07-13 12:00:33.460 +00:00 [DBG] Consent Return Url Parameter: returnUrl
+2022-07-13 12:00:33.461 +00:00 [DBG] Error Url: /home/error
+2022-07-13 12:00:33.462 +00:00 [DBG] Error Id Parameter: errorId
+2022-07-13 12:00:39.012 +00:00 [INF] AuthenticationScheme: Google was challenged.
+2022-07-13 12:00:44.608 +00:00 [INF] AuthenticationScheme: idsrv.external signed in.
+2022-07-13 12:00:44.720 +00:00 [DBG] External claims: ["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier: 116811895742324603759","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name: Paul Lawer","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname: Paul","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname: Lawer","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress: maetzp@gmail.com"]
+2022-07-13 12:00:47.740 +00:00 [DBG] Augmenting SignInContext
+2022-07-13 12:00:47.742 +00:00 [DBG] Adding amr claim with value: external
+2022-07-13 12:00:47.752 +00:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2022-07-13 12:00:47.758 +00:00 [INF] AuthenticationScheme: Identity.External signed out.
+2022-07-13 12:00:47.782 +00:00 [INF] {"Username":null,"Provider":"Google","ProviderUserId":"116811895742324603759","SubjectId":"c3a2059c-e619-4ea1-9b0a-36512bcb09d9","DisplayName":"Paul Lawer","Endpoint":"UI","ClientId":null,"Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HMJ4OT4KPKHD:00000002","TimeStamp":"2022-07-13T12:00:47.0000000Z","ProcessId":90712,"LocalIpAddress":"::1:5001","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2022-07-13 12:06:07.121 +00:00 [INF] Starting host...
+2022-07-13 12:06:07.469 +00:00 [INF] Starting IdentityServer4 version 3.1.3.0
+2022-07-13 12:06:07.739 +00:00 [DBG] Custom IssuerUri set to https://psl-app-vm3/EBookkeepingAuth
+2022-07-13 12:06:07.746 +00:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2022-07-13 12:06:07.747 +00:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2022-07-13 12:06:07.747 +00:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2022-07-13 12:06:07.747 +00:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2022-07-13 12:06:07.748 +00:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2022-07-13 12:06:07.748 +00:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2022-07-13 12:06:10.623 +00:00 [DBG] Login Url: /Account/Login
+2022-07-13 12:06:10.627 +00:00 [DBG] Login Return Url Parameter: returnUrl
+2022-07-13 12:06:10.628 +00:00 [DBG] Logout Url: /Account/Logout
+2022-07-13 12:06:10.628 +00:00 [DBG] ConsentUrl Url: /consent
+2022-07-13 12:06:10.629 +00:00 [DBG] Consent Return Url Parameter: returnUrl
+2022-07-13 12:06:10.630 +00:00 [DBG] Error Url: /home/error
+2022-07-13 12:06:10.630 +00:00 [DBG] Error Id Parameter: errorId
+2022-07-13 12:06:19.309 +00:00 [DBG] 0 persisted grants found for c3a2059c-e619-4ea1-9b0a-36512bcb09d9
+2022-07-13 12:09:59.325 +00:00 [INF] Starting host...
+2022-07-13 12:09:59.614 +00:00 [INF] Starting IdentityServer4 version 3.1.3.0
+2022-07-13 12:09:59.801 +00:00 [DBG] Custom IssuerUri set to https://localhost:5001
+2022-07-13 12:09:59.806 +00:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2022-07-13 12:09:59.806 +00:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2022-07-13 12:09:59.807 +00:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2022-07-13 12:09:59.807 +00:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2022-07-13 12:09:59.807 +00:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2022-07-13 12:09:59.808 +00:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2022-07-13 12:10:03.364 +00:00 [DBG] Login Url: /Account/Login
+2022-07-13 12:10:03.368 +00:00 [DBG] Login Return Url Parameter: returnUrl
+2022-07-13 12:10:03.369 +00:00 [DBG] Logout Url: /Account/Logout
+2022-07-13 12:10:03.370 +00:00 [DBG] ConsentUrl Url: /consent
+2022-07-13 12:10:03.370 +00:00 [DBG] Consent Return Url Parameter: returnUrl
+2022-07-13 12:10:03.370 +00:00 [DBG] Error Url: /home/error
+2022-07-13 12:10:03.371 +00:00 [DBG] Error Id Parameter: errorId
+2022-07-13 12:49:35.895 +00:00 [INF] Starting host...
+2022-07-13 12:49:36.737 +00:00 [INF] Starting IdentityServer4 version 3.1.3.0
+2022-07-13 12:49:37.239 +00:00 [DBG] Custom IssuerUri set to https://localhost:5001
+2022-07-13 12:49:37.245 +00:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2022-07-13 12:49:37.245 +00:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2022-07-13 12:49:37.246 +00:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2022-07-13 12:49:37.246 +00:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2022-07-13 12:49:37.247 +00:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2022-07-13 12:49:37.248 +00:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2022-07-13 12:49:41.173 +00:00 [DBG] Login Url: /Account/Login
+2022-07-13 12:49:41.176 +00:00 [DBG] Login Return Url Parameter: returnUrl
+2022-07-13 12:49:41.176 +00:00 [DBG] Logout Url: /Account/Logout
+2022-07-13 12:49:41.177 +00:00 [DBG] ConsentUrl Url: /consent
+2022-07-13 12:49:41.177 +00:00 [DBG] Consent Return Url Parameter: returnUrl
+2022-07-13 12:49:41.177 +00:00 [DBG] Error Url: /home/error
+2022-07-13 12:49:41.178 +00:00 [DBG] Error Id Parameter: errorId
+2022-07-13 12:49:44.504 +00:00 [INF] AuthenticationScheme: Identity.Application signed out.
+2022-07-13 12:49:44.511 +00:00 [INF] AuthenticationScheme: Identity.External signed out.
+2022-07-13 12:49:44.513 +00:00 [INF] AuthenticationScheme: Identity.TwoFactorUserId signed out.
+2022-07-13 12:49:44.524 +00:00 [INF] Identity.Application was not authenticated. Failure message: No principal.
+2022-07-13 12:49:44.538 +00:00 [INF] Identity.Application was not authenticated. Failure message: No principal.
+2022-07-13 12:50:01.127 +00:00 [INF] AuthenticationScheme: Google was challenged.
+2022-07-13 12:50:08.293 +00:00 [INF] AuthenticationScheme: idsrv.external signed in.
+2022-07-13 12:50:08.403 +00:00 [DBG] External claims: ["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier: 116811895742324603759","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name: Paul Lawer","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname: Paul","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname: Lawer","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress: maetzp@gmail.com"]
+2022-07-13 12:51:07.831 +00:00 [DBG] Augmenting SignInContext
+2022-07-13 12:51:07.832 +00:00 [DBG] Adding amr claim with value: external
+2022-07-13 12:51:07.836 +00:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2022-07-13 12:51:07.838 +00:00 [INF] AuthenticationScheme: Identity.External signed out.
+2022-07-13 12:51:07.858 +00:00 [INF] {"Username":null,"Provider":"Google","ProviderUserId":"116811895742324603759","SubjectId":"29fcf933-5c6e-4baf-bf62-d364ca8b1dc2","DisplayName":"Paul Lawer","Endpoint":"UI","ClientId":null,"Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HMJ4POJ31INF:00000002","TimeStamp":"2022-07-13T12:51:07.0000000Z","ProcessId":108372,"LocalIpAddress":"::1:5001","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}

@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "EbookkeepingAuth": {
+    "PalmBookingAuth": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
